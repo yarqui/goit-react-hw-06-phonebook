@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
 import { Form, InputLabel, InputField, AddButton } from './ContactForm.styled';
 import { addContact } from 'redux/contactsSlice';
 import { useDispatch, useSelector } from 'react-redux';

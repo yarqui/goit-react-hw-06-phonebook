@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contactsSlice';
@@ -9,6 +8,7 @@ const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const filterValue = useSelector(getFilterValue);
+  console.log('contacts:', contacts);
 
   const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filterValue)

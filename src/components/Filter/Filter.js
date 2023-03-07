@@ -1,7 +1,4 @@
-// import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
-// import { nanoid } from 'nanoid';
-// import PropTypes from 'prop-types';
 import { FilterWrap } from './Filter.styled';
 import {
   InputLabel,
