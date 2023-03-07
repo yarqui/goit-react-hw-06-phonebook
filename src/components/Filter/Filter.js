@@ -35,8 +35,4 @@ const Filter = () => {
   );
 };
 
-// Filter.propTypes = {
-//   filterQuery: PropTypes.func.isRequired,
-// };
-
 export default Filter;

@@ -8,6 +8,8 @@ import Filter from './Filter';
 import Layout from './Layout';
 import { List } from './ContactList/ContactList.styled';
 
+// TODO: check prop types TODO:
+
 const App = () => {
   // const [contacts, setContacts] = useState(
   //   () => JSON.parse(localStorage.getItem('contacts')) ?? []
@@ -21,64 +23,19 @@ const App = () => {
   // }, [contacts]);
   // ---------------^
 
-  // -----------
-  // useEffect(() => {
-  //   setFilteredContacts(
-  //     contacts.filter(contact => contact.name.toLowerCase().includes(filter))
-  //   );
-  // }, [contacts, filter]);
-  // -----------^
-
-  // --------------
-  // const doesContactExist = queue => {
-  //   return contacts.some(contact => contact.name === queue);
-  // };
-  // --------------^
-
-  // -------------
-  // const handleSubmit = ({ id, name, number }) => {
-  //   const alreadyExists = doesContactExist(name);
-
-  //   if (alreadyExists) {
-  // toast.warning(`'${name}' is already in contacts`);
-  // return;
-  //   }
-
-  //   setContacts(prevContacts => [...prevContacts, { id, name, number }]);
-  // };
-  // -------------^
-
-  // -----------------
-
-  // const handleFilter = queue => {
-  //   queue ? setFilter(queue) : setFilter('');
-  // };
-  // ---------------^
-
-  // const deleteFromContacts = id => {
-  //   setContacts(
-  //     contacts.filter(contact => {
-  //       return contact.id !== id;
-  //     })
-  //   );
-  // };
-
   return (
     <Layout>
       <Section title="Phonebook">
-        <ContactForm /*onSubmit={handleSubmit}*/></ContactForm>
+        <ContactForm />
       </Section>
       <Section title="Contacts">
-        <Filter /*filterQuery={handleFilter}*/></Filter>
+        <Filter />
         <List>
-          <ContactList
-          // filteredContacts={filteredContacts}
-          // onDeleteContact={deleteFromContacts}
-          />
+          <ContactList />
         </List>
       </Section>
       <ToastContainer
-        theme="colored"
+        theme="dark"
         position="top-center"
         autoClose="1500"
       ></ToastContainer>

@@ -34,9 +34,4 @@ const ContactList = () => {
   ));
 };
 
-// ContactList.propTypes = {
-//   filteredContacts: PropTypes.array.isRequired,
-//   onDeleteContact: PropTypes.func.isRequired,
-// };
-
 export default ContactList;
