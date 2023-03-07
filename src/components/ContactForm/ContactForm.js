@@ -2,13 +2,20 @@ import { useMemo, useState } from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import { Form, InputLabel, InputField, AddButton } from './ContactForm.styled';
+import { addContact } from 'redux/contactsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { getContacts } from 'redux/selectors';
+import { toast } from 'react-toastify';
 
-const ContactForm = ({ onSubmit }) => {
+const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
   const nameInputId = useMemo(() => nanoid(4), []);
   const numberInputId = useMemo(() => nanoid(4), []);
+
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
 
   const resetForm = () => {
     setName('');
@@ -32,12 +39,21 @@ const ContactForm = ({ onSubmit }) => {
     }
   };
 
+  const doesContactExist = nameQuery => {
+    return contacts.some(
+      contact => contact.name.toLowerCase() === nameQuery.toLowerCase()
+    );
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
 
-    const id = nanoid(6);
+    if (doesContactExist(name)) {
+      toast.warning(`'${name}' is already in contacts`);
+      return;
+    }
 
-    onSubmit({ id, name, number });
+    dispatch(addContact(name, number));
 
     resetForm();
   };
@@ -76,8 +92,8 @@ const ContactForm = ({ onSubmit }) => {
   );
 };
 
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// ContactForm.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
 
 export default ContactForm;

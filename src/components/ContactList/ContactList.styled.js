@@ -29,6 +29,5 @@ export const DeleteButton = styled.button`
   &:focus {
     cursor: pointer;
     background: #4fe7f5;
-    color: white;
   }
 `;
