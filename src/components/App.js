@@ -7,8 +7,6 @@ import Filter from './Filter';
 import Layout from './Layout';
 import { List } from './ContactList/ContactList.styled';
 
-// TODO: check prop types TODO:
-
 const App = () => {
   return (
     <Layout>
