@@ -15,8 +15,10 @@ const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filterValue = useSelector(getFilterValue);
   console.log('contacts:', contacts);
+  console.log('filterValue:', filterValue);
 
   const visibleContacts = getVisibleContacts(contacts, filterValue);
+  console.log('visibleContacts:', visibleContacts);
 
   return visibleContacts.map(({ id, name, number }) => (
     <ContactItem key={id}>
