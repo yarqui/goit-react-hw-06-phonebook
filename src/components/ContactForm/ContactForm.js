@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { Form, InputLabel, InputField, AddButton } from './ContactForm.styled';
 import { addContact } from 'redux/contactsSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { toast } from 'react-toastify';
 
 const ContactForm = () => {
@@ -13,7 +13,7 @@ const ContactForm = () => {
   const nameInputId = useMemo(() => nanoid(4), []);
   const numberInputId = useMemo(() => nanoid(4), []);
 
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const resetForm = () => {
