@@ -34,9 +34,7 @@ const contactsSlice = createSlice({
       // );
       // state.contacts.splice(index, 1);
 
-      return state.data.contacts.filter(
-        contact => contact.id !== action.payload
-      );
+      return state.contacts.filter(contact => contact.id !== action.payload);
     },
   },
 });
