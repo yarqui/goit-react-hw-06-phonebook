@@ -29,14 +29,14 @@ const contactsSlice = createSlice({
     },
 
     deleteContact(state, action) {
-      const index = state.contacts.findIndex(
-        contact => contact.id === action.payload
-      );
-      state.contacts.splice(index, 1);
-
-      // return state.data.contacts.filter(
-      //   contact => contact.id !== action.payload
+      // const index = state.contacts.findIndex(
+      //   contact => contact.id === action.payload
       // );
+      // state.contacts.splice(index, 1);
+
+      return state.data.contacts.filter(
+        contact => contact.id !== action.payload
+      );
     },
   },
 });
