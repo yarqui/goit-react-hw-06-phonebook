@@ -29,16 +29,18 @@ const contactsSlice = createSlice({
     },
 
     deleteContact(state, action) {
-      // const index = state.contacts.findIndex(
-      //   contact => contact.id === action.payload
-      // );
-      // state.contacts.splice(index, 1);
-
       return {
         contacts: state.contacts.filter(
           contact => contact.id !== action.payload
         ),
       };
+
+      //** 👇It's another way of updating the state **//
+
+      // const index = state.contacts.findIndex(
+      //   contact => contact.id === action.payload
+      // );
+      // state.contacts.splice(index, 1);
     },
   },
 });
@@ -53,7 +55,5 @@ export const contactsReducer = persistReducer(
   persistConfig,
   contactsSlice.reducer
 );
-
-console.log('contactsReducer:', contactsReducer);
 
 export const { addContact, deleteContact } = contactsSlice.actions;
